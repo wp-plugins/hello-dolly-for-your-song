@@ -3,10 +3,10 @@ Contributors: unmus
 Tags: hello dolly
 Requires at least: 3.5.1
 Tested up to: 3.5.1
-Stable tag: 4.3
+Stable tag: 0.3
 License: GPLv3 or later
 
-This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg and brings the songtext of your favourite song to the admin head.
+This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg. It shows the songtext of any song in the admin head.
 
 == Description ==
 
