@@ -1,7 +1,7 @@
 === Hello Dolly For Your Song ===
 Contributors: unmus
 Tags: hello dolly, love
-Requires at least: 3.5.1
+Requires at least: 3.0 or higher
 Tested up to: 3.5.1
 Stable tag: trunk
 License: GPLv3 or later
