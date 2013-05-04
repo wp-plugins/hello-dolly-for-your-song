@@ -6,6 +6,8 @@ Tested up to: 3.5.1
 Stable tag: 4.3
 License: GPLv3 or later
 
+This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg and brings the songtext of your favourite song to the admin head.
+
 == Description ==
 
 This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg. Every human being has a special connection to a particular song. And because of that, Hello Dolly For Your Song brings the lyric of your favourite song to the admin screen.
@@ -22,9 +24,19 @@ This simple plugin is an extended version of the famous hello dolly plugin by Ma
 2. Activate the plugin through the Plugins menu in WordPress
 3. Then go to settings > Hello Dolly Your Song to configure your songtext
 
+== Frequently Asked Questions ==
+
+= I have not maintained any songtext, nevertheless some text will be displayed in the admin head. =
+
+This is Hello Dolly by Louis Armstrong. If not any text is maintained in the options, the programm uses the songtext of Hello Dolly.
+
+= How can I deinstall Hello Dolly For Your Song =
+
+You can use the regular way at the plugin page. But the last maintained text remains in your database. To remove it, please delete the dataset "option-name=hdfys_song" in the table wp_options.
+
 == Screenshots ==
 
-1. Display the songtext in the frontend
+1. Display the songtext in the admin head
 2. Options Page
 
 == Changelog ==
