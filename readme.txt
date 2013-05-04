@@ -1,9 +1,9 @@
 === Hello Dolly For Your Song ===
 Contributors: unmus
-Tags: hello dolly
+Tags: hello dolly, love
 Requires at least: 3.5.1
 Tested up to: 3.5.1
-Stable tag: 4.3
+Stable tag: trunk
 License: GPLv3 or later
 
 This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg. It shows the songtext of any song in the admin head.
@@ -36,14 +36,15 @@ You can use the regular way at the plugin page. But the last maintained text rem
 
 == Screenshots ==
 
-1. Display the songtext in the admin head
+1. Display songtext in the admin head
 2. Options Page
 
 == Changelog ==
 
 = 0.3 =
 * 3 may 2013
-* Structed and readable code
+* Structured and readable code
+* Initial published version
 
 = 0.2 =
 * 3 may 2013
