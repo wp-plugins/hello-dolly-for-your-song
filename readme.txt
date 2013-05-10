@@ -20,7 +20,7 @@ This simple plugin is an extended version of the famous hello dolly plugin by Ma
 
 = Related Links =
 
-<a href="http://www.unmus.de/hello-dolly-for-your-song/">Why I created this plugin?</a> (German)
+<a href="http://www.unmus.de/hello-dolly-for-your-song/">Why I have created this plugin?</a> (German)
 
 == Installation ==
 
