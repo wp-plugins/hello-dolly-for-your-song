@@ -18,6 +18,10 @@ This simple plugin is an extended version of the famous hello dolly plugin by Ma
 * Display custom songtext in the admin head
 * Options Page to define a custom song text
 
+= Features =
+
+<a href="http://www.unmus.de/hello-dolly-for-your-song/">Why I created this plugin?</a>
+
 == Installation ==
 
 1. Upload plugin folder to the /wp-content/plugins/ directory
