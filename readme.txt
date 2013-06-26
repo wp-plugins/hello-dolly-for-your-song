@@ -6,7 +6,7 @@ Tested up to: 3.5.2
 Stable tag: trunk
 License: GPLv3 or later
 
-This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg. It shows a random text line of any song in the blog as widget and at the admin screen.
+This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg. It shows the songtext of any song in your blog.
 
 == Description ==
 
@@ -14,10 +14,8 @@ This simple plugin is an extended version of the famous hello dolly plugin by Ma
 
 = Features =
 
-* Display Hello Dolly in the admin head
-* Display custom songtext at the admin screen
-* Display custom songtext in the blog
-* Hello For Dolly Your Song Widget
+* Display a random line of a custom text in your blog as widget
+* Display a random line of a custom text in the blog administration
 * Options Page to define a custom song text
 * Languages: English, German
 
