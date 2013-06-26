@@ -62,7 +62,7 @@ Remove the // and write your widget title between the apostrophes.
 * Widget
 * Localization
 * German language
-* Clean desinstallation (database entries will be removed)
+* Clean deinstallation (database entries will be removed)
 * Bugfix: Processing of apostrophes
 
 = 0.3 =
