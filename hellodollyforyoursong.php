@@ -17,6 +17,10 @@ Author URI: http://www.unmus.de/
 add_action( 'admin_notices', 'hdfys' );
 add_action( 'admin_head', 'hdfys_css' );
 add_action( 'admin_menu', 'hdfys_show_options');
+add_action( 'plugins_loaded' , 'hdfys_init_widget');
+
+// Localization
+load_plugin_textdomain('hellodollyforyoursong', false, 'hello-dolly-for-your-song');
 
 /*
 Content Functions
@@ -27,7 +31,10 @@ function hdfys_get_lyric() {
 	
 	// First we fetch the lyric
 	$lyrics = get_option('hdfys_song');
-
+	
+	// Remove the slashes
+	$lyrics = stripcslashes($lyrics);
+	
 	// Here we split it into lines
 	$lyrics = explode( "\n", $lyrics );
 
@@ -84,7 +91,7 @@ function hdfys() {
 	$text = get_option('hdfys_song');
 	$text = strlen($text);
 	$line = ($text > 0) ? hdfys_get_lyric() : hdfys_get_hello_dolly() ;
-	echo "<p id='hdfys'>".$line."</p>";
+	echo "<p class='admin-hdfys'>".$line."</p>";
 }
 
 // We need some CSS to position the paragraph
@@ -93,7 +100,7 @@ function hdfys_css() {
 	$x = is_rtl() ? 'left' : 'right';
 	echo "
 	<style type='text/css'>
-	#hdfys {
+	.admin-hdfys {
 		float: $x;
 		padding-$x: 15px;
 		padding-top: 5px;		
@@ -119,13 +126,14 @@ function hdfys_options() {
 		update_option('hdfys_song', $your_song);
 		echo '		
 		<div class="updated fade">
-		<p><strong>Settings saved!</strong></p> 
+		<p><strong>'. __('Settings saved!','hellodollyforyoursong').'</strong></p> 
 		</div>';
 	}
 	$your_song = (get_option('hdfys_song') != false) ? get_option('hdfys_song') : "";
+	$your_song = stripcslashes($your_song);
 	echo '
-	<p>Which song do you like?<br/>What song touched you?<br/>What song brings you back fond memories?</p>
-	<p>Enter the lyrics into the form.</p>
+	<p>'. __('Which song do you like?','hellodollyforyoursong').'<br/>'. __('What song touched you?','hellodollyforyoursong').'<br/>'. __('What song brings you back fond memories?','hellodollyforyoursong').'</p>
+	<p>'. __('Enter the lyrics into the form.','hellodollyforyoursong').'</p>
 	<form name="songtext" method="post" action="">
 	<textarea name="your_song" style="width:600px;height:400px;">'.$your_song.'</textarea>
 	<p class="submit">
@@ -142,6 +150,31 @@ Add the options page to the admin panel
 
 function hdfys_show_options() {
 add_options_page('Hello Dolly For Your Song', 'Hello Dolly Your Song', 10, basename(__FILE__), "hdfys_options");
+}
+
+/*
+Widget
+*/
+
+// Load the widget
+function hdfys_init_widget() {
+	
+	register_sidebar_widget('Hello Dolly For Your Song', 'hdfys_widget');
+}
+
+// The unbelievable widget ;-)
+function hdfys_widget() {
+
+	$widget_text = get_option('hdfys_song');
+	$widget_text = strlen($widget_text);
+	$widget_line = ($widget_text > 0) ? hdfys_get_lyric() : hdfys_get_hello_dolly() ;
+	echo '<aside class="widget hdfys">';
+	echo '<h3 class="widget-title">';
+	// echo 'Delete the previous // and enter your widget title here';
+	echo '</h3>';
+	echo '<p class="widget-hdfys">'.$widget_line.'</p>';
+	echo '</aside>';
+	
 }
 
 ?>
