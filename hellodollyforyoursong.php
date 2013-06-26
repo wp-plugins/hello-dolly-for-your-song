@@ -7,7 +7,7 @@
 Plugin Name: Hello Dolly For Your Song
 Description: This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg. Every human being has a special connection to a particular song. And because of that, Hello Dolly For Your Song brings the lyric of your favourite song to the admin screen.
 Plugin URI: http://wordpress.org/extend/plugins/hello-dolly-for-your-song/
-Version: 0.3
+Version: 0.4
 License: GPLv3
 Author: Marco Hitschler
 Author URI: http://www.unmus.de/
