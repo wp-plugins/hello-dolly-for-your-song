@@ -2,7 +2,7 @@
 Contributors: unmus
 Tags: hello dolly, love, widget, music, song, random, text
 Requires at least: 3.0 or higher
-Tested up to: 3.5.2
+Tested up to: 3.6
 Stable tag: 0.4
 License: GPLv3 or later
 
