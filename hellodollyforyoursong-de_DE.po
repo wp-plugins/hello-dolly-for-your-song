@@ -29,3 +29,9 @@ msgstr "Schreib den Liedtext in das Formular."
 
 msgid "Settings saved!"
 msgstr "Einstellungen gespeichert!"
+
+msgid "Use the random lines in articles and pages:"
+msgstr "Nutze die zufällige Zeile in Artikel und Seiten:"
+
+msgid "Show a custom line of your text"
+msgstr "Zeige eine zufällige Zeile deines Texts"

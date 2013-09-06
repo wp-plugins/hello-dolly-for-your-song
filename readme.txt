@@ -1,9 +1,9 @@
 === Hello Dolly For Your Song ===
 Contributors: unmus
-Tags: hello dolly, love, widget, music, song, random, text
-Requires at least: 3.0 or higher
+Tags: hello dolly, love, widget, music, song, random, text, shortcode
+Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 0.4
+Stable tag: 0.5
 License: GPLv3 or later
 
 This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg. It shows the songtext of any song in your blog.
@@ -15,6 +15,7 @@ This simple plugin is an extended version of the famous hello dolly plugin by Ma
 = Features =
 
 * Display a random line of a custom text in your blog as widget
+* Display a random line of a custom text in your blog as shortcode
 * Display a random line of a custom text in the blog administration
 * Options Page to define a custom song text
 * Languages: English, German
@@ -37,6 +38,18 @@ But much better is the wordpress plugin directory installation.
 
 This is Hello Dolly by Louis Armstrong. If not any text is maintained in the options, the programm uses the songtext of Hello Dolly.
 
+= How can I use the shortcode? =
+
+Type [hdfys] in a blank line (this is important) in your articles and pages.
+
+= How can I bring the widget in the blog with a custom widget title? =
+
+You can define the title in the settings of the widget. If you use older versions of this plugin (<0.5), try this: Go to line 173 of the file hellodollyforyoursong.php. Remove the // and write your widget title between the apostrophes.
+
+= Can I assign custom css to the output? =
+
+Yes, you can. Each output of this plugin has individuell css classes. Please use your debugging tools, find the classes.
+
 = How can I deinstall Hello Dolly For Your Song? =
 
 You can use the regular way at the plugin page. After deinstallation your wordpress is really clean. Version 0.4 of this plugin and above cleans all database entries too.
@@ -45,17 +58,17 @@ You can use the regular way at the plugin page. After deinstallation your wordpr
 
 You can use the regular way at the plugin page too. But the last maintained text remains in your database. To remove it, please delete the dataset "option-name=hdfys_song" in the table wp_options.
 
-= How can I bring the widget in the blog with a custom widget title? =
-
-Go to line 173 of the file hellodollyforyoursong.php.
-Remove the // and write your widget title between the apostrophes.
-
 == Screenshots ==
 
 1. Display songtext in the admin head
 2. Options Page
 
 == Changelog ==
+
+= 0.5 =
+* 06 september 2013
+* Shortcode
+* Custom Widget Title
 
 = 0.4 =
 * 26 june 2013

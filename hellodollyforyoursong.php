@@ -2,22 +2,26 @@
 
 /*
 @package Hello_Dolly_For_Your_Song
-@version 0.1
+@version 0.5
 
 Plugin Name: Hello Dolly For Your Song
-Description: This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg. Every human being has a special connection to a particular song. And because of that, Hello Dolly For Your Song brings the lyric of your favourite song to the admin screen.
+Description: This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg. Every human being has a special connection to a particular song. And because of that, Hello Dolly For Your Song brings the lyric of your favourite song to the admin screen, articles and pages.
 Plugin URI: http://wordpress.org/extend/plugins/hello-dolly-for-your-song/
-Version: 0.4
+Version: 0.5
 License: GPLv3
 Author: Marco Hitschler
 Author URI: http://www.unmus.de/
+*/
+
+/*
+Basic Setup
 */
 
 // Wordpress Action
 add_action( 'admin_notices', 'hdfys' );
 add_action( 'admin_head', 'hdfys_css' );
 add_action( 'admin_menu', 'hdfys_show_options');
-add_action( 'plugins_loaded' , 'hdfys_init_widget');
+add_action( 'widgets_init', 'register_hdfys_widget' );
 
 // Localization
 load_plugin_textdomain('hellodollyforyoursong', false, 'hello-dolly-for-your-song');
@@ -115,6 +119,7 @@ function hdfys_css() {
 Options Page
 */
 
+// Display and Process of the Options Page
 function hdfys_options() {
 	echo '
 	<div class="wrap">
@@ -134,20 +139,22 @@ function hdfys_options() {
 	echo '
 	<p>'. __('Which song do you like?','hellodollyforyoursong').'<br/>'. __('What song touched you?','hellodollyforyoursong').'<br/>'. __('What song brings you back fond memories?','hellodollyforyoursong').'</p>
 	<p>'. __('Enter the lyrics into the form.','hellodollyforyoursong').'</p>
-	<form name="songtext" method="post" action="">
+	<form name="songtext" method="post" action="" style="float:left;margin-right:20px;">
 	<textarea name="your_song" style="width:600px;height:400px;">'.$your_song.'</textarea>
 	<p class="submit">
 	<input type="submit" class="button-primary" name="hdfys" value="Save" />
 	</p>
 	</form>
+	<div>
+	<p><strong>Shortcode</strong>
+	</p><p>'. __('Use the random lines in articles and pages:','hellodollyforyoursong').'
+	</p><p>[hdfys]</p>
+	</div
 	</div>
 	';
 }
 
-/*
-Add the options page to the admin panel
-*/
-
+// Add the options page to the admin panel
 function hdfys_show_options() {
 add_options_page('Hello Dolly For Your Song', 'Hello Dolly Your Song', 10, basename(__FILE__), "hdfys_options");
 }
@@ -156,25 +163,71 @@ add_options_page('Hello Dolly For Your Song', 'Hello Dolly Your Song', 10, basen
 Widget
 */
 
-// Load the widget
-function hdfys_init_widget() {
-	
-	register_sidebar_widget('Hello Dolly For Your Song', 'hdfys_widget');
-}
-
 // The unbelievable widget ;-)
-function hdfys_widget() {
-
-	$widget_text = get_option('hdfys_song');
-	$widget_text = strlen($widget_text);
-	$widget_line = ($widget_text > 0) ? hdfys_get_lyric() : hdfys_get_hello_dolly() ;
-	echo '<aside class="widget hdfys">';
-	echo '<h3 class="widget-title">';
-	// echo 'Delete the previous // and enter your widget title here';
-	echo '</h3>';
-	echo '<p class="widget-hdfys">'.$widget_line.'</p>';
-	echo '</aside>';
+class hdfys_widget extends WP_Widget {
 	
+	// widget actual processes
+	public function __construct() {
+		parent::__construct(
+		'hdfys_widget', 
+		'Hello Dolly For Your Song', 
+		array( 'description' => __( 'Show a custom line of your text', 'hellodollyforyoursong'  ), ) 
+		);
+	}
+
+	// widget output
+	public function widget( $args, $instance ) {
+		$title = apply_filters( 'widget_title', $instance['title'] );
+		$widget_text = get_option('hdfys_song');
+		$widget_text = strlen($widget_text);
+		$widget_line = ($widget_text > 0) ? hdfys_get_lyric() : hdfys_get_hello_dolly() ;
+		echo '<aside class="widget hdfys">';
+		echo '<h3 class="widget-title hdfys">';
+			if ( ! empty( $title ) )
+				echo $title;
+		echo '</h3>';
+		echo '<p class="widget-hdfys">'.$widget_line.'</p>';
+		echo '</aside>';
+	}
+
+	// widget form
+	public function form( $instance ) {
+		if ( isset( $instance[ 'title' ] ) ) {
+			$title = $instance[ 'title' ];
+		}
+		?>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+		</p>
+		<?php 
+	}
+
+	// widget settings update
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		return $instance;
+	}
+
 }
+
+// Register widget
+function register_hdfys_widget() {
+    register_widget( 'Hdfys_widget' );
+}
+
+/*
+Shortcode
+*/
+
+// The unbelievable shortcode ;-)
+function hdfys_shortcode() {
+	$shortcode_text = get_option('hdfys_song');
+	$shortcode_length = strlen($shortcode_text);
+	$shortcode_line = ($shortcode_lenght > 0) ? hdfys_get_lyric() : hdfys_get_hello_dolly() ;
+	return '<p class="hdfys shortcode">'. $shortcode_line .'</p>';
+}
+add_shortcode('hdfys','hdfys_shortcode');
 
 ?>
