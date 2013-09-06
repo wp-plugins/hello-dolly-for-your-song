@@ -47,7 +47,6 @@ Type [hdfys] in a blank line (this is important) in your articles and pages.
 You can define the title in the settings of the widget. If you use older versions of this plugin (<0.5), try this: Go to line 173 of the file hellodollyforyoursong.php. Remove the // and write your widget title between the apostrophes.
 
 = Can I assign custom css? =
-
 Yes, you can. Each output of this plugin has individuell css classes. Please use your debugging tools, to find the classes.
 
 = How can I deinstall Hello Dolly For Your Song? =
