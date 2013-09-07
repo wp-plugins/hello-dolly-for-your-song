@@ -64,10 +64,6 @@ You can use the regular way at the plugin page too. But the last maintained text
 
 == Changelog ==
 
-= 0.5.1 =
-* 07 september 2013
-* Bugfix: Shortcode
-
 = 0.5 =
 * 06 september 2013
 * Shortcode
