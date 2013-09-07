@@ -3,7 +3,7 @@ Contributors: unmus
 Tags: hello dolly, love, widget, music, song, random, text, shortcode
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 0.5.1
+Stable tag: 0.5
 License: GPLv3 or later
 
 This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg. It shows the songtext of any song in your blog.
