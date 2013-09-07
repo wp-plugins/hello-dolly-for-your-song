@@ -225,7 +225,7 @@ Shortcode
 function hdfys_shortcode() {
 	$shortcode_text = get_option('hdfys_song');
 	$shortcode_length = strlen($shortcode_text);
-	$shortcode_line = ($shortcode_lenght > 0) ? hdfys_get_lyric() : hdfys_get_hello_dolly() ;
+	$shortcode_line = ($shortcode_length > 0) ? hdfys_get_lyric() : hdfys_get_hello_dolly() ;
 	return '<p class="hdfys shortcode">'. $shortcode_line .'</p>';
 }
 add_shortcode('hdfys','hdfys_shortcode');
