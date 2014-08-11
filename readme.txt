@@ -2,8 +2,8 @@
 Contributors: unmus
 Tags: hello dolly, love, widget, music, song, random, text, shortcode
 Requires at least: 3.0
-Tested up to: 3.6
-Stable tag: 0.5.2
+Tested up to: 3.9
+Stable tag: 0.6
 License: GPLv3 or later
 
 This simple plugin is an extended version of the famous hello dolly plugin by Matt Mullenweg. It shows the songtext of any song in your blog.
@@ -18,11 +18,15 @@ This simple plugin is an extended version of the famous hello dolly plugin by Ma
 * Display a random line of a custom text in your blog as shortcode
 * Display a random line of a custom text in the blog administration
 * Options Page to define a custom song text
-* Languages: English, German
+* Languages: English, German, Spanish
 
 = Related Links =
 
 <a href="http://www.unmus.de/wordpress-plugin-hello-dolly-for-your-song/">Official Plugin Page</a> (German) // <a href="http://www.unmus.de/hello-dolly-for-your-song/">Why I have created this plugin?</a> (German)
+
+= Thank You =
+
+Andrew Kurtis and <a href="http://www.webhostinghub.com/">WebHostingHub</a> for the spanish translation.
 
 == Installation ==
 
@@ -63,6 +67,10 @@ You can use the regular way at the plugin page too. But the last maintained text
 2. Options Page
 
 == Changelog ==
+
+= 0.6 =
+* 09 august 2014
+* Spanish Language
 
 = 0.5 =
 * 06 september 2013
