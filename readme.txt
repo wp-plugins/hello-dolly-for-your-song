@@ -26,7 +26,7 @@ This simple plugin is an extended version of the famous hello dolly plugin by Ma
 
 = Thank You =
 
-Andrew Kurtis and <a href="http://www.webhostinghub.com/">WebHostingHub</a> for the spanish translation.
+Plugin en el español por Andrew de <a href="http://www.webhostinghub.com/">WebHostingHub</a>.
 
 == Installation ==
 
